@@ -1,0 +1,378 @@
+[
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.activation-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.api",
+    "app_description": "",
+    "type": "api",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.cancellation",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.confirmation",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.confirmation-batch-splitter",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.confirmation-cleanup",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.confirmation-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.legacy-offer-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.offer",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.offer-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.orphan-resolver-cron",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.orphan-resolver-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.print-activation-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.reservation-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.shop-activation-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "acceptance",
+    "repo_name": "betting.acceptance.shop-reservation-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "config",
+    "repo_name": "betting.config.api",
+    "app_description": "",
+    "type": "api",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "config",
+    "repo_name": "betting.config.client",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "go-libs-betting",
+    "repo_name": "betting.contracts",
+    "app_description": "",
+    "type": "library",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "go-libs-betting",
+    "repo_name": "betting.lib.auth",
+    "app_description": "",
+    "type": "library",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "go-libs-betting",
+    "repo_name": "betting.lib.combinations",
+    "app_description": "",
+    "type": "library",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "go-libs-betting",
+    "repo_name": "betting.lib.errors",
+    "app_description": "",
+    "type": "library",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "go-libs-betting",
+    "repo_name": "betting.lib.http-middlewares",
+    "app_description": "",
+    "type": "library",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "go-libs-betting",
+    "repo_name": "betting.lib.infrastructure-tools",
+    "app_description": "",
+    "type": "library",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "go-libs-betting",
+    "repo_name": "betting.lib.kafkacli",
+    "app_description": "",
+    "type": "library",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "go-libs-betting",
+    "repo_name": "betting.lib.taxes",
+    "app_description": "",
+    "type": "library",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "payoff",
+    "repo_name": "betting.payoff.processor",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "settlement",
+    "repo_name": "betting.settlement.payout",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "settlement",
+    "repo_name": "betting.settlement.payout-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "test",
+    "repo_name": "betting.test.framework",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "betting.tickets.api",
+    "app_description": "",
+    "type": "api",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "betting.tickets.archival",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "betting.tickets.controller",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "betting.tickets.legacy-migrator",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "betting.tickets.legacy-replicator",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "betting.tickets.migrations",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "betting.tickets.presentation-api",
+    "app_description": "",
+    "type": "api",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "betting.tickets.presentation-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "betting.tickets.warehouse",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "go-libs-betting",
+    "repo_name": "temp-betting.lib.migration",
+    "app_description": "",
+    "type": "library",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets-cache",
+    "repo_name": "tickets-cache.api",
+    "app_description": "",
+    "type": "api",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets-cache",
+    "repo_name": "tickets-cache.engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets-cache",
+    "repo_name": "tickets-cache.pusher",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "tickets.offer-adapter",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "tickets.offer-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "tickets.resettlement",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  },
+  {
+    "domain": "betting",
+    "system": "tickets",
+    "repo_name": "tickets.settlement",
+    "app_description": "",
+    "type": "service",
+    "owner": "betting"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "domain": "social",
+    "system": "elixir-libs-social",
+    "repo_name": "social.social-purger-models",
+    "app_description": "",
+    "type": "library",
+    "owner": "social"
+  },
+  {
+    "domain": "social",
+    "system": "elixir-libs-social",
+    "repo_name": "social.social-models",
+    "app_description": "",
+    "type": "library",
+    "owner": "social"
+  },
+  {
+    "domain": "social",
+    "system": "elixir-libs-social",
+    "repo_name": "social.social-api-models",
+    "app_description": "",
+    "type": "library",
+    "owner": "social"
+  },
+  {
+    "domain": "social",
+    "system": "users",
+    "repo_name": "social.api-suggestions",
+    "app_description": "",
+    "type": "api",
+    "owner": "social"
+  },
+  {
+    "domain": "social",
+    "system": "chat",
+    "repo_name": "social.api-chats",
+    "app_description": "",
+    "type": "api",
+    "owner": "social"
+  },
+  {
+    "domain": "social",
+    "system": "chat",
+    "repo_name": "social.api-communities",
+    "app_description": "",
+    "type": "api",
+    "owner": "social"
+  }
+]

@@ -1,0 +1,914 @@
+[
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.api",
+    "app_description": "Serves Offer to clients via HTTP and Websockets",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.fastly.purge-retrier",
+    "app_description": "Fixes offer after purger fails.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.fastly.purger",
+    "app_description": "Purges changed offer from Fastly.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.lotto.engine",
+    "app_description": "Imports lotto data from supersoft into the offer server redis. Only used for SB_RO as lotto is not allowed in SB_PL and the service is only used for legacy SuperSoft data.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.print.adapter",
+    "app_description": "Prepares offer for generating print pdf. Works only for outright events.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.print.api",
+    "app_description": "Generates and serves pdf based on data provided by print adapter and a hardcoded html template.",
+    "type": "library",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.print.results-engine",
+    "app_description": "Updates results in SuperSoft. If it fails, the Offer Print will have incorrect data.\nResults imported in SuperSoft are then produced in offer TEMP_LEGACY_MESSAGE which is used to serve results on offer server.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.print.sport-engine",
+    "app_description": "Updates prices and event statuses in Supersoft.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.specials.allowances-api",
+    "app_description": "Periodically fetches allowances config from CMS and pushes into the allowances topic. If it fails, Bet Acceptance will not have the latest allowance configuration.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.specials.code-engine",
+    "app_description": "Consumes SuperSoft print specials and updates market line and odd entering codes based on them. If it fails, retail apps may not be able to find events using the entering codes. ",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.specials.engine",
+    "app_description": "Consumes SuperSoft specials and saves them to redis, to be used by offer.api.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.specials.print-engine",
+    "app_description": "Imports parts of regular sports offer as specials to Supersoft.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.sport.engine",
+    "app_description": "Processes the offer topic and saves prepared offer to Redis.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.sport.predictor",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.sport.streaming-api",
+    "app_description": "Serves offer to clients via SSE. If it fails, clients will not have the latest Offer data and will not be able to place bets.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "offer.supersoft.pregame-engine",
+    "app_description": "Processes Supersoft sport messages and transforms them into the Offer contract. If it fails, events priced in Supersoft may cause issues and restrictions information may not be available. ",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "structure.player.api",
+    "app_description": "Handles structure player mappings and universal player data.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "structure.player.importer",
+    "app_description": "Imports external player information and imports it into the structure players database.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "swish.adapter",
+    "app_description": "Processes raw Swish data and converts it into universal event feed.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "swish.importer",
+    "app_description": "Fetches event data from Swish using a cron job. Sends data to kafka topic and uses redis for meta storage.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.betgenius.adapter",
+    "app_description": "Processes raw Betgenius data and converts it into universal event feed.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.betgenius.api",
+    "app_description": "Forwards event booking requests to BetGenius.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.betgenius.autobooking",
+    "app_description": "Automatically books events for configured sports with BetGenius.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.betgenius.importer",
+    "app_description": "Receives HTTP requests from BetGenius and produces the data into feed topic.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.betradar.adapter",
+    "app_description": "Processes raw Betradar data and converts it into universal event feed.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.betradar.api",
+    "app_description": "Fetches event data from Betradar and produces it into the feed topic or returns it as http response.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.betradar.autobooking",
+    "app_description": "Automatically books events for specific sports with Betradar.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.betradar.importer",
+    "app_description": "Imports raw betradar feed data and produces it into a kafka topic.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.betradar.resulter",
+    "app_description": "Periodically checks if event results have changed and produces them as kafka messages.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.betradar.scheduler",
+    "app_description": "Periodically schedules missing events with Betradar based on configuration.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.bookie.dashboard",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.events.alerts",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.events.api",
+    "app_description": "Creates triggers for various fixture changes and overrides.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.events.codes-api",
+    "app_description": "Generates and keeps track of entering code usage.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.events.engine",
+    "app_description": "Maintains fixture state.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.events.kickoffer",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.events.notifications",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.events.requester",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.events.tracer",
+    "app_description": "Consumer bookie feed and updates event data in trading.events.api.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.exefeed.adapter",
+    "app_description": "Processes raw exefeed data and produces universal event messages.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.exefeed.importer",
+    "app_description": "Receives exefeed event data and produces it into a kafka topic.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.hubble.adapter",
+    "app_description": "Processes raw hubble data and produces universal event messages.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.hubble.api",
+    "app_description": "",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.hubble.api-market-engine",
+    "app_description": "",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.hubble.availability-api",
+    "app_description": "Serves live updates to UI for cashout and gamestate. Provides endpoints for trader interactions with model.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.hubble.connector",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.hubble.gamestate-engine",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.hubble.offer-api",
+    "app_description": "",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.hubble.rts-detector",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.hubble.superbets-adapter",
+    "app_description": "Processes raw hubble data and produces universal event messages.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.hubble.web-ui",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.logging.elasticsearch-cleaner",
+    "app_description": "Deletes old documents from elasticsearch.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.logging.elasticsearch-exporter",
+    "app_description": "Exports feed, offer and bookie topic data to elasticsearch.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.logging.master-logger",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.logging.offer-logger",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.master.api",
+    "app_description": "Performs fixture support actions like transferring mappings, retrieving mappings from master engine storage, retrieving all event ids from a specific feed, etc. ",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.master.converter",
+    "app_description": "Converts universal event feed, bookie struct feed and bookie event feed into json formats. Guess it\u2019s for hubble since it skips hubble messages.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.master.engine",
+    "app_description": "Maps universal message ids to superbet ids. Merges event data with structure. Forwards fixtures from event feed to bookie event feed.",
+    "type": "library",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.master.outage-notifier",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.notifications.api",
+    "app_description": "",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.notifications.kafka2slack",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.notifications.notifier",
+    "app_description": "Verifies offer state and generates notifications.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.notifications.web-ui",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.offer.api",
+    "app_description": "Has many various offer state manipulation tools.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.offer.api-ws",
+    "app_description": "Serves websocket connections for Trading UI users with live updates.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.offer.archive-api",
+    "app_description": "Stores old events to an S3 bucket.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.offer.audit-api",
+    "app_description": "Fetches historical offer data from elasticsearch.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.offer.audit-engine",
+    "app_description": "Stores offer data into elasticsearch.",
+    "type": "library",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.offer.engine",
+    "app_description": "Composes offer.",
+    "type": "library",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.offer.settler",
+    "app_description": "Tracks which events had reassigned IDs and copies market update messages for those events. Since reassignment is not used anymore, it has not purpose.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.offer.tracer",
+    "app_description": "Monitors message age at different points in the pipeline.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.offer.web-ui",
+    "app_description": "Everything Trading UI",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.opta.adapter",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.opta.importer",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.opta.scheduler",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.outrights.codes-engine",
+    "app_description": "Tracks outright market lines from bookie event feed and assigns entering codes to them.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.outrights.feed",
+    "app_description": "Provides tools for managing outright events.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.params.api",
+    "app_description": "Serves model params data to UI.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.price.api",
+    "app_description": "Performs price calculations used by Trading UI.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.rbac.api",
+    "app_description": "Handles user and permission related actions for RBAC.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.rbac.role-api",
+    "app_description": "Handles RBAC roles setup.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.rbac.web-ui",
+    "app_description": "RBAC UI.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.specials.adapter",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.streaming.api",
+    "app_description": "Fetches streaming information from stream providers.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.streaming.engine",
+    "app_description": "Fetches streaming information from stream providers.",
+    "type": "library",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.struct.api",
+    "app_description": "Maintains structure and template state. Syncs structure data to SuperSoft and back.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.struct.audit-api",
+    "app_description": "Fetches historical structure data from elasticsearch.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.struct.audit-engine",
+    "app_description": "Imports bookie struct messages into elasticsearch.",
+    "type": "library",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.struct.competitors-tracer",
+    "app_description": "Tracks which competitors appeared in which tournament based on bookie feed fixture data. Uses struct API to save data.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.struct.requester",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.struct.supplier",
+    "app_description": "Reads structure data from storage and produces it into bookie struct topic. Needs to be manually triggered.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.struct.web-ui",
+    "app_description": "Everything Struct UI.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.suggestions.api",
+    "app_description": "Serves odd suggestion data read from storage saved by the suggestions engine.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.suggestions.engine",
+    "app_description": "Stores odd prices provided by feeds.",
+    "type": "library",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.supergames.api",
+    "app_description": "Manages supergames related information. If it fails, market updates are not processed so supergame market state becomes stale.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.supergames.engine",
+    "app_description": "Processes offer topics to calculate market updates for supergame markets.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.supergames.supersoft-sync",
+    "app_description": "Imports supergames information into Supersoft so it is available for printing and restrictions are generated.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.supersoft.pregame-adapter",
+    "app_description": "Fetches fixture information from legacy supersoft database and produces them into the universal event feed. With all the fixtures in Supersoft being imported from Bookie, the only information used from Supersoft are the match entering codes.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.templates.api",
+    "app_description": "Provides event market template manipulation tools.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.templates.tracer",
+    "app_description": "Updates event and market template information with trading.templates.api",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.templates.web-ui",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.traders.api",
+    "app_description": "Manages bookie users\u2019 personalisation data.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.translations.api",
+    "app_description": "Provides name transformation tools used for importing specials data into Supersoft.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.txodds.adapter",
+    "app_description": "Processes raw txodds data and generates universal event messages.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.txodds.early-pricing",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.txodds.event",
+    "app_description": "",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.txodds.event-api",
+    "app_description": "",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.txodds.fetcher",
+    "app_description": "Periodically fetches struct data from txodds and writes it into a local txodds struct topic.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.txodds.flush",
+    "app_description": "Consumes raw txodds topic and stores to dynamodb. Has an endpoint to flush those values back to that same topic.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.txodds.importer",
+    "app_description": "Imports txodds event data and produces to raw txodds kafka topic.",
+    "type": "library",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.txodds.mappings",
+    "app_description": "Consumes bookie struct feed and stores mappings to txodds.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.txodds.template-api",
+    "app_description": "Stores txodds specific templates.",
+    "type": "api",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.txodds.web-ui",
+    "app_description": "TxOdds configuration UI.",
+    "type": "service",
+    "owner": "offer"
+  },
+  {
+    "domain": "offer",
+    "system": "system",
+    "repo_name": "trading.universal.api",
+    "app_description": "",
+    "type": "api",
+    "owner": "offer"
+  }
+]
