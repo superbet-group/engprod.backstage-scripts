@@ -198,7 +198,6 @@ def api_catalog_info(app, dependencies):
     catalog_info_component = json_to_yaml(component)
     catalog_info_api = json_to_yaml(api)
     catalog_info_api = append_openapi_definition(entity, catalog_info_api)
-    # TODO append openapi definition
 
     catalog_info = "---\n".join([catalog_info_component, catalog_info_api])
     return catalog_info
