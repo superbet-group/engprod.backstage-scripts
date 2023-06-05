@@ -221,7 +221,7 @@ def service_catalog_info(app, dependencies):
     if dependencies:
         catalog_info["spec"]["dependsOn"] = dependencies
     if GITHUB_ORG_NAME == "superology-backend":
-        component = append_grafana_links(component, app)
+        catalog_info = append_grafana_links(catalog_info, app)
 
     return json_to_yaml(catalog_info)
 
