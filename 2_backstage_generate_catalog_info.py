@@ -2,6 +2,7 @@ import os
 import re
 import json
 import yaml
+from colorama import Fore
 
 
 class YamlDumper(yaml.Dumper):
@@ -256,6 +257,10 @@ def generate_catalog_info(app, apps_dir, libs):
     elif language == "elixir":
         app_dependencies = extract_elixir_deps(app, apps_dir, libs["elixir"])
     else:
+        print(
+            Fore.YELLOW
+            + "  -> language not supported, please add dependencies manually"
+        )
         app_dependencies = []
 
     if app["type"] == "api":
@@ -304,25 +309,22 @@ file_apps = open(input_file)
 applications = json.load(file_apps)
 libs = fetch_libs()
 total = 0
-report = []
+
 
 for count, app in enumerate(applications):
+    print(Fore.RESET + f"{count+1}/{len(applications)} - {app['repo_name']}")
+
     if not os.path.exists(f"{apps_dir}/{app['repo_name']}"):
-        print(f"{count+1}/{len(applications)} - {app['repo_name']} -> not found")
+        print(Fore.RED + "  -> repo not found")
         continue
 
-    template = generate_catalog_info(app, apps_dir, libs)
+    catalog_info = generate_catalog_info(app, apps_dir, libs)
 
-    if template:
-        create_catalog_info_file(app, apps_dir, template)
-        print(
-            f"{count+1}/{len(applications)} - {app['repo_name']} -> catalog-info.yaml added"
-        )
+    if catalog_info:
+        create_catalog_info_file(app, apps_dir, catalog_info)
+        print(Fore.GREEN + "  -> catalog-info.yaml added")
         total += 1
     else:
-        print(
-            f"{count+1}/{len(applications)} - {app['repo_name']} -> language not supported"
-        )
+        print(Fore.RED + "  -> error creating catalog-info.yaml")
 
-
-print(f"\n\nDone - {total}/{len(applications)} descriptors created!")
+print(Fore.RESET + f"\n\nDone - {total}/{len(applications)} descriptors created!")
