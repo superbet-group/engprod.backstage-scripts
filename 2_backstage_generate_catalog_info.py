@@ -259,7 +259,7 @@ def generate_catalog_info(app, apps_dir, libs):
     else:
         print(
             Fore.YELLOW
-            + "  -> language not supported, please add dependencies manually"
+            + "  -> programming language not supported, please add dependencies manually"
         )
         app_dependencies = []
 
