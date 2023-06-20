@@ -228,7 +228,8 @@ def service_catalog_info(app, dependencies):
 
 
 def library_catalog_info(app, dependencies):
-    entity_name = format_name(app["repo_name"], app["domain"])
+    entity_name = format_name(app["repo_name"], app["system"])
+
     entity = {
         "name": entity_name,
         "title": format_title(entity_name),
