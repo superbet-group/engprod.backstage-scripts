@@ -52,5 +52,6 @@
   "Deps.Superology.Superfeeds.sf_sportradar_kafka_syncs": "elixir-libs-superfeeds",
   "Deps.Superology.Superfeeds.sf_entity_pairing_models": "elixir-libs-superfeeds",
   "Deps.Superology.Superfeeds.sf_universal_gamestate_models": "elixir-libs-superfeeds",
-  "Deps.Superology.Superfeeds.sf_entity_pair_domain_syncs": "elixir-libs-superfeeds"
+  "Deps.Superology.Superfeeds.sf_entity_pair_domain_syncs": "elixir-libs-superfeeds",
+  "Deps.Superology.Superfeeds.sf_entity_media_models": "elixir-libs-superfeeds"
 }

@@ -2,5 +2,6 @@ local/*
 backstage/*
 backstage.betting/*
 backstage.offer/*
+backstage.social/*
 
 backstage.apps.json
