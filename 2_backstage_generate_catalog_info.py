@@ -145,7 +145,7 @@ def extract_elixir_deps(app, apps_dir, libs):
             continue
 
         prefix = libs[dependency]
-        name = dependency.split(".")[-1].replace("_", "-")
+        name = dependency.split(".")[-1].replace("_", "-").replace("sf-", "superfeeds-")
 
         dependencies.append(f"component:{prefix}_{name}")
 
