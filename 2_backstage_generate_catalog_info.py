@@ -85,7 +85,7 @@ def append_grafana_links(catalog_info, entity):
     links = []
     for env, env_name in [("dev", "Staging"), ("pro", "Production")]:
         link = {
-            "url": f"https://grafana.superology.{env}/d/lUF3So77z/apps-generic-per-pod?orgId=1&var-namespace={entity['domain']}-rosuperbetsport&var-container=rosuperbetsport-{name_without_prefix}&var-pod=All&var-consumer_groups=All&var-container_underscore=rosuperbetsport_{name_snake_case}",
+            "url": f"https://grafana.superology.{env}/d/lUF3So77z/apps-generic-per-pod?orgId=1&var-namespace={entity['domain']}-default&var-container=default-{name_without_prefix}&var-pod=All&var-consumer_groups=All&var-container_underscore=default_{name_snake_case}",
             "title": f"Grafana Dashboard {env_name}",
             "icon": "dashboard",
             "type": "grafana-dashboard",
@@ -125,6 +125,7 @@ def extract_go_deps(app, apps_dir, libs):
             prefix = f"go-libs-{app['domain']}"
 
         name = dependency_repo_name.replace(".", "-")
+        
         dependencies.append(f"component:{prefix}_{name}")
 
     return dependencies
@@ -146,8 +147,11 @@ def extract_elixir_deps(app, apps_dir, libs):
 
         prefix = libs[dependency]
         name = dependency.split(".")[-1].replace("_", "-")
-
-        dependencies.append(f"component:{prefix}_{name}")
+        print(f"{name}")
+        if "Superfeeds" in dependency:
+            dependencies.append(f"component:{prefix}_superfeeds-{name}")
+        else:
+            dependencies.append(f"component:{prefix}_{name}")
 
     return dependencies
 

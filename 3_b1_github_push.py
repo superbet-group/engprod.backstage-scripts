@@ -5,7 +5,7 @@ import os
 def github_commit(destination_dir):
     os.chdir(destination_dir)
 
-    branch_name = "master"
+    branch_name = "develop"
     commit_message = "chore: add entity descriptor"
 
     subprocess.run(["git", "checkout", branch_name])
